@@ -1,18 +1,18 @@
-import {EllipsisVertical, User2 } from "lucide-react"
-import { Button } from "../ui/button"
-import Link from "next/link"
+import {EllipsisVertical } from "lucide-react"
 import ModeToggle from "./mode-toggle"
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "../ui/sheet"
+import UserButton from "./user-button"
 
 const Menu = () => {
   return <div className="flex justify-end gap-3">
     <nav className="hidden md:flex w-full max-w-xs gap-1">
         <ModeToggle />
-        <Button variant='default' asChild>
+        {/* <Button variant='default' asChild>
             <Link href='/sign-in'>
                 <User2 /> Sign in
             </Link>
-        </Button>
+        </Button> */}
+        <UserButton />
     </nav>
     <nav className="md:hidden">
         <Sheet>
@@ -22,11 +22,12 @@ const Menu = () => {
             <SheetContent className="flex flex-col items-start">
                 <SheetTitle>Menu</SheetTitle>
                 <ModeToggle />
-                <Button variant='default' asChild>
+                {/* <Button variant='default' asChild>
                     <Link href='/sign-in'>
                         <User2 /> Sign in
                     </Link>
-                </Button>
+                </Button> */}
+                <UserButton />
                 <SheetDescription></SheetDescription>
             </SheetContent>
         </Sheet>

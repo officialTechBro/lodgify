@@ -24,3 +24,20 @@ export const createPropertySchema = z.object({
     images: z.array(z.string()).min(1, 'Property must have at least one image'),
     isFeatured: z.boolean()
 })
+
+// User signin schema
+export const signInFormSchema = z.object({
+    email: z.string().email('Invalid email address'),
+    password: z.string().min(6, 'password must be at least 6 characters')
+})
+
+// User signup schema
+export const signUpFormSchema = z.object({
+    name: z.string().min(3, 'Name must be at least 3 characters'),
+    email: z.string().email('Invalid email address'),
+    password: z.string().min(6, 'password must be at least 6 characters'),
+    confirmPassword: z.string().min(6, 'Confirm password must be at least 6 characters'),
+}).refine((data) => data.password === data.confirmPassword, {
+    message: 'Passwords dont match',
+    path: ['confirmPassword']
+})
